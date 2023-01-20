@@ -11,3 +11,8 @@ class Test(unittest.TestCase):
     from about_time import about_time
     #
     return
+#
+if __name__ == '__main__':
+    unittest.main()
+##############################################################################80
+# End.
