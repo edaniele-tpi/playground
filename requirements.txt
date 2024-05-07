@@ -1,9 +1,8 @@
-commentjson==0.9.0
 cycler==0.10.0
 importlib-resources==5.7.1
-matplotlib==3.1.2
+matplotlib==3.5.1
 meshio==4.4.6
-numpy==1.24.1
+numpy==1.22.4
 openpyxl==3.0.10
 pandas==1.4.2
 pymoo==0.6.0
@@ -11,7 +10,7 @@ pyswarm==0.6
 rich==12.4.2
 scikit_learn==1.1.1
 scipy==1.10.0
-setuptools==66.0.0
+setuptools==45.2.0
 tqdm==4.66.3
 xlrd==2.0.1
 XlsxWriter==3.0.3
