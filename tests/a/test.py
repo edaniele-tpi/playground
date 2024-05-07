@@ -22,7 +22,13 @@ class Test(unittest.TestCase):
       try:
         importlib.import_module(i.key)
       except Exception as e:
-        print('\tException found:\t'+str(e))
+        # try with character replacement
+        try:
+          importlib.import_module(i.key.replace('-','_'))
+        except Exception as e:
+          print('\tException found:\t'+str(e))
+        else:
+          print('\tSuccessfully imported:\t'+i.key.replace('-','_'))
       else:
         print('\tSuccessfully imported:\t'+i.key)
     #
