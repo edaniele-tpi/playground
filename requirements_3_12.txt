@@ -1,5 +1,5 @@
 # cycler==0.10.0
-importlib-resources==5.7.1
+importlib-resources==6.4.0
 # matplotlib==3.5.1
 # meshio==4.4.6
 # numpy==1.22.4
