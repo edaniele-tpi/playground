@@ -26,7 +26,14 @@ class Test(unittest.TestCase):
         try:
           importlib.import_module(i.key.replace('-','_'))
         except Exception as e:
-          print('\tException found:\t'+str(e))
+          if 'scikit' in i.key:
+            new_key = 'sk'+i.key.split('-')[-1]
+            try:
+              importlib.import_module(new_key)
+            except Exception as e:
+              print('\tException found:\t'+str(e))
+            else:
+              print('\tSuccessfully imported:\t'+key)
         else:
           print('\tSuccessfully imported:\t'+i.key.replace('-','_'))
       else:
