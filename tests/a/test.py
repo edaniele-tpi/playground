@@ -33,7 +33,7 @@ class Test(unittest.TestCase):
             except Exception as e:
               print('\tException found:\t'+str(e))
             else:
-              print('\tSuccessfully imported:\t'+key)
+              print('\tSuccessfully imported:\t'+new_key)
         else:
           print('\tSuccessfully imported:\t'+i.key.replace('-','_'))
       else:
