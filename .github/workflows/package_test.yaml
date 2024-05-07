@@ -35,7 +35,7 @@ jobs:
     - if: ${{ matrix.python-version == '3.12'}}
       name: Install requirements for Python 3.12
       run: |
-        python --version
+        if [ -f requirements_3_12.txt ]; then pip install -r requirements_3_12.txt; fi
     - name: Lint with flake8
       run: |
         # stop the build if there are Python syntax errors or undefined names
