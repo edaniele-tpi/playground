@@ -1,4 +1,4 @@
-import unittest, importlib, importlib.metadata
+import unittest, importlib, importlib.metadata, os
 #
 class installed_package(object):
   def __init__(self, key, version):
