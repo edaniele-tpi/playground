@@ -10,7 +10,7 @@ pyswarm==0.6
 rich==13.7.1
 scikit_learn==1.4.2
 scipy==1.13.0
-setuptools==69.5.1 
+setuptools==65.5.1 
 tqdm==4.66.3
 xlrd==2.0.1
 XlsxWriter==3.2.0
