@@ -1,4 +1,4 @@
-import unittest
+import unittest, importlib, importlib.metadata
 #
 class installed_package(object):
   def __init__(self, key, version):
@@ -53,12 +53,6 @@ class Test(unittest.TestCase):
     '''
       Test a.
     '''
-    import pkg_resources
-    import importlib
-    try:
-      from pip import get_installed_distributions
-    except:
-      from pip._internal.utils.misc import get_installed_distributions
     installed_packages = get_installed_distributions()
     # installed_packages = pkg_resources.working_set
     installed_packages_list = sorted(
