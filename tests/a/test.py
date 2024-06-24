@@ -1,5 +1,50 @@
 import unittest
 #
+class installed_package(object):
+  def __init__(self, key, version):
+    '''
+      Constructor.
+    '''
+    #
+    self.key = key
+    self.version = version
+    #
+    return
+#
+def get_installed_distributions(verbose: bool = False):
+  '''
+    Returns installed distribution as `installed_package` object.
+  '''
+  ds = [d for d in importlib.metadata.distributions()]
+  ip = []
+  for d in ds:
+    try:
+      d._path
+    except:
+      pass
+    else:
+      if verbose: print(str(d._path)+'\t:\tversion:\t'+d.version)
+      name = None
+      if '.egg' in os.path.basename(str(d._path))\
+        or '.dist' in os.path.basename(str(d._path)):
+        name = os.path.basename(str(d._path))
+      else:
+        name = os.path.basename(os.path.dirname(str(d._path)))
+      if verbose: print('distro:\t'+name)
+      name_ = None
+      for i, n in enumerate(name):
+        if n == '-':
+          name_ = name[:i]
+          break
+      if '.' in name_:
+        name_ = name_.split('.')[0]
+      if verbose: print('name:\t'+name_)
+      ip.append(
+        installed_package(key=name_, version=d.version)
+      )
+  #
+  return ip
+#
 class Test(unittest.TestCase):
   '''
     Test class
