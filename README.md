@@ -1,3 +1,3 @@
 # [playground][#playground]
 
-Playground for github workflow for python development
+Playground for GitHub workflow(s) for Python based development.
