@@ -1,0 +1,42 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.com/schemas/airfoilsimulator.schema.json",
+  "title": "airfoilsimulator",
+  "description": "A schema for the airfoilsimulator input",
+  "$defs": {
+    "conditions": {
+      "description": "Operating conditions as list.",
+      "type": "array",
+      "uniqueItems": true,
+      "default" : [{}],
+      "items": { "$ref" : "https://example.com/schemas/condition.schema.json"}
+    }
+  },
+  "type": "object",
+  "oneOf" : [
+    {"required": ["Original airfoil"]},
+    {"required": ["Geometry"]}
+  ],
+  "properties": {
+    "Case": { "$ref": "https://example.com/schemas/case.schema.json" },
+    "Original airfoil": { 
+      "$ref": "https://example.com/schemas/geometry.schema.json",
+      "description" : "[Deprecated - Use `Geometry` instead] Geometry used for simulation.",
+      "deprecated" : true
+    },
+    "Geometry" : { "$ref": "https://example.com/schemas/geometry.schema.json" },
+    "Aerodynamic solver": { 
+      "$ref": "https://example.com/schemas/solver.schema.json",
+      "description" : "[Deprecated - Use `Solver` instead] Solver for aerodynamic simulation.",
+      "deprecated" : true
+    },
+    "Solver" : { "$ref": "https://example.com/schemas/solver.schema.json" },
+    "Operating conditions": { 
+      "$ref": "#/$defs/conditions",
+      "description" : "[Deprecated - Use `Conditions` instead] Operating conditions as list.",
+      "deprecated" : true
+    },
+    "Conditions" : { "$ref": "#/$defs/conditions" },
+    "Analysis" : { "$ref": "https://example.com/schemas/analysis.schema.json" }
+  }
+}

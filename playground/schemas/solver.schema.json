@@ -1,0 +1,66 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.com/schemas/solver.schema.json",
+  "title": "solver",
+  "description": "Solver for aerodynamic simulation.",
+  "type": "object",
+  "default" : {
+    "Type" : "sfoil"
+  },
+  "required" : ["Type"],
+  "properties": {
+    "Type": {
+      "description": "Name of the solver used to execute the simulation.",
+      "type": "string",
+      "default": "sfoil",
+      "enum": [
+        "sfoil", 
+        "xfoil", 
+        "xfoilvg", 
+        "vgfoil", 
+        "rfoil",
+        "openfoam",
+        "su2"
+      ]
+    },
+    "Unsteady?" : {
+      "description" : "Flag for unsteady simulation",
+      "default" : null,
+      "oneOf" : [
+        {
+          "type": "boolean",
+          "default" : false
+        },
+        {
+          "type": "string",
+          "default" : "false",
+          "enum" : ["false", "true", "False", "True"]
+        },
+        {
+          "type" : "null",
+          "default" : null
+        }
+      ]
+    },
+    "TurbulenceModel" : {
+      "description" : "Turbulence model name",
+      "default" : null,
+      "oneOf" : [
+        {
+          "type": "string",
+          "default" : "SpalartAllmaras",
+          "enum" : [
+            "SpalartAllmaras", "Spalartallmaras", "spalartallmaras",
+            "kOmegaSST", "komegaSST", "komegasst", 
+            "kOmegaSSTLM", "komegaSSTLM", "komegasstLM", "komegasstlm"
+          ]
+        },
+        {
+          "type" : "null",
+          "default" : null
+        }
+      ]
+    },
+    "Grid" : { "$ref": "https://example.com/schemas/grid.schema.json" }
+  }
+}

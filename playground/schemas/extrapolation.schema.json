@@ -1,0 +1,84 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.com/schemas/extrapolation.schema.json",
+  "title": "extrapolation",
+  "description": "Polar extrapolation settings",
+  "oneOf" : [
+    {
+      "type": "object",
+      "default" : {}
+    },
+    {
+      "type" : "null",
+      "default" : null
+    }
+  ],
+  "default" : null,
+  "properties" : {
+    "Type" : {
+      "description" : "Extrapolation method's name",
+      "type" : "string",
+      "default" : "Montgomerie-Lindenburg",
+      "enum" : [
+        "Viterna-Corrigan", 
+        "Montgomerie-Lindenburg",
+        "Montgomerie-Lindenburg-2001",
+        "Template",
+        "Inputfile"
+      ]
+    },
+    "CD3d-Correction" : {
+      "description" : "Corrected value for drag at 90 degrees due to three-dimensional effects / -",
+      "default" : null,
+      "oneOf" : [
+        {
+          "type" : "number",
+          "default" : 1.5,
+          "exclusiveMinimum" : 0.0,
+          "maximum" : 3.0
+        },
+        {
+          "type" : "null",
+          "default" : null
+        }
+      ]
+    },
+    "Fix-Lift-Post-Stall" : {
+      "description" : "Flag to consider a fix for lift in post stall",
+      "default" : false,
+      "oneOf" : [
+        {
+          "type": "boolean",
+          "default" : false
+        },
+        {
+          "type": "string",
+          "default" : "false",
+          "enum" : ["false", "true", "False", "True"]
+        }
+      ]
+    },
+    "Fix-Deep-Post-Stall-Range" : {
+      "description" : "Flag to consider a fix for deep stall range",
+      "default" : false,
+      "oneOf" : [
+        {
+          "type": "boolean",
+          "default" : false
+        },
+        {
+          "type": "string",
+          "default" : "false",
+          "enum" : ["false", "true", "False", "True"]
+        }
+      ]
+    },
+    "Fix-Lift-Post-Stall-Reverse-Flow" : {
+      "description" : "Lift coefficient value(s) to consider as fix for post stall in reverse flow range. List with positive and negative branch values.",
+      "default" : [],
+      "type": "array",
+      "minItems" : 0,
+      "maxItems" : 2
+    }
+  }
+}

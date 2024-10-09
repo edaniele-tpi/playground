@@ -1,0 +1,72 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.com/schemas/sythesis.schema.json",
+  "title": "sythesis",
+  "description": "Polar synthetic manipulation settings",
+  "oneOf" : [
+    {
+      "type": "object",
+      "default" : {}
+    },
+    {
+      "type" : "null",
+      "default" : null
+    }
+  ],
+  "default" : null,
+  "properties" : {
+    "E-max" : {
+      "description" : "Manipulate the maximum efficiency value(s). Default is empty, thus, disregarded. Otherwise, the user can specify a different value for each condition.",
+      "default" : null,
+      "properties" : {
+        "allOf" : [
+          {"$ref": "https://example.com/schemas/synthesis-shift.schema.json"}
+        ]
+      }
+    },
+    "Lift-Slope" : {
+      "description" : "Manipulate the lift slope value(s). Default is empty, thus, disregarded. Otherwise, the user can specify a different value for each condition.",
+      "default" : null,
+      "properties" : {
+        "Shift" : {
+          "description" : "Value by which the maximum efficiency should be shifted. It can be interpreted as absolute or relative difference depending on the value assumed by the next property. Default is [0.0], thus, disregarded.",
+          "type" : "array",
+          "default" : [0.0],
+          "minItems" : 1
+        },
+        "ShiftAsPercentage?" : {
+          "description" : "Whether the shift value should be interpreted as absolute or relative difference. Default is `False`.",
+          "oneOf" : [
+            {
+              "type": "boolean",
+              "default" : false
+            },
+            {
+              "type": "string",
+              "default" : "false",
+              "enum" : ["false", "true", "False", "True"]
+            }
+          ]
+        }
+      }
+    },
+    "Lift-Stall" : {
+      "description" : "Manipulate the lift stall value(s). Default is empty, thus, disregarded. Otherwise, the user can specify a different value for each condition.",
+      "default" : null,
+      "properties" : {
+        "allOf" : [
+          {"$ref": "https://example.com/schemas/synthesis-shift.schema.json"}
+        ]
+      }
+    },
+    "Lift-Stall-Drop" : {
+      "description" : "Manipulate the lift stall drop value(s). Default is empty, thus, disregarded. Otherwise, the user can specify a different value for each condition.",
+      "default" : null,
+      "properties" : {
+        "allOf" : [
+          {"$ref": "https://example.com/schemas/synthesis-shift.schema.json"}
+        ]
+      }
+    }
+  }
+}

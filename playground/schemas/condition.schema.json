@@ -1,0 +1,18 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.com/schemas/condition.schema.json",
+  "title": "condition",
+  "description": "A schema for the operating condition in the airfoilsimulator input",
+  "type": "object",
+  "required": [],
+  "properties": {
+    "$ref": "https://example.com/schemas/inflow.schema.json",
+    "$ref": "https://example.com/schemas/boundary-layer.schema.json",
+    "Vortex-Generators" : {
+      "$ref": "https://example.com/schemas/vortex-generator.schema.json"
+    },
+    "Trailing-Edge-Serration" : {
+      "$ref": "https://example.com/schemas/trailing-edge-serration.schema.json"
+    }
+  }
+}

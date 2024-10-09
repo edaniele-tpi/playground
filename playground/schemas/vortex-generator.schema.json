@@ -1,0 +1,62 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.com/schemas/vortex-generator.schema.json",
+  "title": "vortex-generator",
+  "description" : "Vortex Generators' settings",
+  "type" : "object",
+  "properties" : {
+    "x-Location" : {
+      "description" : "Chord-wise location / -",
+      "type" : "number",
+      "minimum" : 0.0,
+      "maximum" : 1.0,
+      "default" : 0.2
+    },
+    "Height" : {
+      "description" : "Normalized height / -",
+      "type" : "number",
+      "exclusiveMinimum" : 0.0,
+      "maximum" : 1.0,
+      "default" : 0.01
+    },
+    "Length" : {
+      "description" : "Normalized length / -",
+      "type" : "number",
+      "exclusiveMinimum" : 0.0,
+      "maximum" : 1.0,
+      "default" : 0.02
+    },
+    "Spacing" : {
+      "description" : "Normalized spacing / -",
+      "type" : "number",
+      "exclusiveMinimum" : 0.0,
+      "maximum" : 1.0,
+      "default" : 0.07
+    },
+    "Vane-angle" : {
+      "description" : "Vane angle / deg",
+      "type" : "number",
+      "exclusiveMinimum" : 0.0,
+      "maximum" : 90.0,
+      "default" : 10.0
+    },
+    "Model-Parameters" : {
+      "description" : "VGFOIL parameters A and B / -",
+      "type" : "object",
+      "properties" : {
+        "A" : {
+          "description" : "VGFOIL amplitude parameter A / -",
+          "type" : "number",
+          "exclusiveMinimum" : 0.0,
+          "default" : 0.25
+        },
+        "B" : {
+          "description" : "VGFOIL exponent parameter B / -",
+          "type" : "number",
+          "exclusiveMinimum" : 0.0,
+          "default" : 2.5
+        }
+      }
+    }
+  }
+}

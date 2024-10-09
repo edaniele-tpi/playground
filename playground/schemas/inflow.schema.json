@@ -1,0 +1,60 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.com/schemas/inflow.schema.json",
+  "title": "inflow",
+  "description" : "Inflow settings",
+  "type" : "object",
+  "properties" : {
+    "Reynolds" : {
+      "description": "Reynolds number / -",
+      "type": "number",
+      "default" : 1e6,
+      "minimum": 1e5
+    },
+    "Mach" : {
+      "description": "Mach number / -",
+      "type": "number",
+      "default" : 0,
+      "minimum": 0
+    },
+    "Turbulence intensity" : {
+      "description": "Turbulence intensity / %",
+      "type": "number",
+      "default" : 0.07,
+      "exclusiveMinimum": 0
+    },
+    "AoA-start" : {
+      "description": "Starting angle of attack / deg",
+      "type": "number",
+      "default" : -15
+    },
+    "AoA-end" : {
+      "description": "Ending angle of attack / deg",
+      "type": "number",
+      "default" : 25
+    },
+    "AoA-step" : {
+      "description": "Step-wise increase in angle of attack / deg",
+      "type": "number",
+      "default" : 0.5,
+      "exclusiveMinimum": 0
+    },
+    "Transition" : {
+      "description" : "Transition settings",
+      "anyOf" : [
+        {
+          "description" : "Free or natural transition settings",
+          "type" : "string",
+          "enum": ["Free"]
+        },
+        {
+          "description" : "Forced or induced transition",
+          "type" : "array",
+          "minItems": 2,
+          "maxItems": 5,
+          "item" : false
+        }
+      ]
+    }
+  }
+}

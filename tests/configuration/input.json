@@ -1,0 +1,59 @@
+{
+  "Case": {
+    "Name": "Preprocessed",
+    "Description": "Case originated from companion oper matrix Excel /mnt/c/Users/e.daniele/Documents/__Aeroloads/Aerodynamics/Airfoils/99_ProfilAero/10_RnD/Airfoil_Development/20_airfoilsimulator/TPI40/cs/operMatrix_example.xlsx"
+  },
+  "Geometry": {
+    "Filename": "airfoil"
+  },
+  "Solver": {
+    "Type": "sfoil",
+    "Grid" : {
+      "engine" : "gmsh"
+    }
+  },
+  "Conditions": [
+    {
+      "Reynolds": 600000.0,
+      "Mach": 0.1,
+      "Turbulence intensity": 0.106,
+      "AoA-start": -5.0,
+      "AoA-end": 25.0,
+      "AoA-step": 0.5,
+      "Boundary-Layer-Post": "true",
+      "Transition": "Free",
+      "Trailing-Edge-Serration": {
+        "Length": 0.3,
+        "Beta": 10.0
+      }
+    },
+    {
+      "Reynolds": 600000.0,
+      "Mach": 0.1,
+      "Turbulence intensity": 0.106,
+      "AoA-start": -5.0,
+      "AoA-end": 25.0,
+      "AoA-step": 0.5,
+      "Boundary-Layer-Post": "true",
+      "Transition": [0.05, 0.10, "Zig-zag-tape", 0.03, 0.03],
+      "Trailing-Edge-Serration": {
+        "Length": 0.3,
+        "Beta": 10.0
+      }
+    }
+  ],
+  "Analysis": {
+    "Initialize?": "true",
+    "Run?": "true",
+    "Postprocess?": "true",
+    "Plots?": "true",
+    "Reports?": "true",
+    "Extrapolation" : {
+      "Type" : "Montgomerie-Lindenburg"
+    },
+    "Synthesis" : {
+      "E-max" : {},
+      "Lift-Slope" : {}
+    }
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.com/schemas/case.schema.json",
+  "title": "case",
+  "description": "Dictionary containing name and description for the simulation case.",
+  "type": "object",
+  "default" : {
+    "Name" : "case",
+    "Description" : "Default case where no other input is provided."
+  },
+  "additionalProperties": false,
+  "properties": {
+    "Name": {
+      "description": "Name of the case used for results in form of BMX file.",
+      "type": "string",
+      "default" : "case"
+    },
+    "Description": {
+      "description": "Short description of the simulation case.",
+      "type": "string",
+      "default" : "Default case where no other input is provided."
+    }
+  },
+  "required": [ "Name", "Description" ]
+}

@@ -1,0 +1,20 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.com/schemas/geometry.schema.json",
+  "title": "geometry",
+  "description": "Geometry used for simulation.",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "Filename": {
+      "description": "Name of the file containing the airfoil coordinate under the same directory of the input file without extension.",
+      "type": "string"
+    },
+    "Panel-number" : {
+      "description" : "Number of points used in airfoil geometry discretization",
+      "type" : "integer",
+      "default" : 150
+    }
+  },
+  "required": [ "Filename" ]
+}

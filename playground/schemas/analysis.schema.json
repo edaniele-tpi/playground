@@ -1,0 +1,116 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.com/schemas/analysis.schema.json",
+  "title": "analysis",
+  "description" : "Analysis configuration",
+  "type" : "object",
+  "default" : {},
+  "properties" : {
+    "Processors" : {
+      "description" : "Number of processors used with CFD solvers",
+      "type" : "integer",
+      "minimum" : 2
+    },
+    "Initialize?": {
+      "description": "Flag for analysis initialization",
+      "default" : null,
+      "oneOf" : [
+        {
+          "type": "boolean",
+          "default" : true
+        },
+        {
+          "type": "string",
+          "default" : "true",
+          "enum" : ["false", "true", "False", "True"]
+        },
+        {
+          "type" : "null",
+          "default" : null
+        }
+      ]
+    },
+    "Run?": {
+      "description": "Flag for analysis run",
+      "default" : null,
+      "oneOf" : [
+        {
+          "type": "boolean",
+          "default" : true
+        },
+        {
+          "type": "string",
+          "default" : "true",
+          "enum" : ["false", "true", "False", "True"]
+        },
+        {
+          "type" : "null",
+          "default" : null
+        }
+      ]
+    },
+    "Postprocess?": {
+      "description": "Flag for analysis post-processing",
+      "default" : null,
+      "oneOf" : [
+        {
+          "type": "boolean",
+          "default" : true
+        },
+        {
+          "type": "string",
+          "default" : "true",
+          "enum" : ["false", "true", "False", "True"]
+        },
+        {
+          "type" : "null",
+          "default" : null
+        }
+      ]
+    },
+    "Plots?": {
+      "description": "Flag for analysis plots",
+      "default" : null,
+      "oneOf" : [
+        {
+          "type": "boolean",
+          "default" : true
+        },
+        {
+          "type": "string",
+          "default" : "true",
+          "enum" : ["false", "true", "False", "True"]
+        },
+        {
+          "type" : "null",
+          "default" : null
+        }
+      ]
+    },
+    "Reports?": {
+      "description": "Flag for analysis reports",
+      "default" : null,
+      "oneOf" : [
+        {
+          "type": "boolean",
+          "default" : true
+        },
+        {
+          "type": "string",
+          "default" : "true",
+          "enum" : ["false", "true", "False", "True"]
+        },
+        {
+          "type" : "null",
+          "default" : null
+        }
+      ]
+    },
+    "Extrapolation": {
+      "$ref": "https://example.com/schemas/extrapolation.schema.json"
+    },
+    "Synthesis" : {
+      "$ref": "https://example.com/schemas/sythesis.schema.json"
+    }
+  }
+}

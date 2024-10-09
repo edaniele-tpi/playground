@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.com/schemas/trailing-edge-serration.schema.json",
+  "title": "trailing-edge-serration",
+  "description" : "Trailing-Edge-Serration settings",
+  "type" : "object",
+  "properties" : {
+    "Length" : {
+      "description" : "Normalized length / -",
+      "type" : "number",
+      "exclusiveMinimum" : 0.0,
+      "maximum" : 1.0,
+      "default" : 0.10
+    },
+    "Width" : {
+      "description" : "Normalized width / -",
+      "type" : "number",
+      "exclusiveMinimum" : 0.0,
+      "maximum" : 1.0,
+      "default" : 0.025
+    },
+    "Beta" : {
+      "description" : "Flap angle / deg",
+      "type" : "number",
+      "maximum" : 90.0,
+      "default" : 5.0
+    }
+  }
+}

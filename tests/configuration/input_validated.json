@@ -1,0 +1,103 @@
+{
+  "Case": {
+    "Name": "Preprocessed",
+    "Description": "Case originated from companion oper matrix Excel /mnt/c/Users/e.daniele/Documents/__Aeroloads/Aerodynamics/Airfoils/99_ProfilAero/10_RnD/Airfoil_Development/20_airfoilsimulator/TPI40/cs/operMatrix_example.xlsx"
+  },
+  "Geometry": {
+    "Filename": "C:\\Users\\e.daniele\\Development\\GitHub\\playground\\tests\\configuration\\airfoil.dat",
+    "Panel-number": 150
+  },
+  "Solver": {
+    "Type": "sfoil",
+    "Unsteady?": false,
+    "TurbulenceModel": "SpalartAllmaras",
+    "Grid": {
+      "engine": "gmsh",
+      "cgi": null,
+      "Type": "o",
+      "nx": 513,
+      "ny": null,
+      "nz": 1,
+      "nte": null,
+      "farfield": 30.0,
+      "dz": 1.0
+    }
+  },
+  "Conditions": [
+    {
+      "Reynolds": 600000.0,
+      "Mach": 0.1,
+      "Turbulence intensity": 0.106,
+      "Transition": "Free",
+      "G-beta locus": {
+        "A": null,
+        "B": null
+      },
+      "AoA-start": -5.0,
+      "AoA-end": 25.0,
+      "AoA-step": 0.5,
+      "Vortex-Generator": null,
+      "Trailing-Edge-Serration": {
+        "Length": 0.3,
+        "Beta": 10.0,
+        "Width": 0.025
+      },
+      "Boundary-Layer-Post": true
+    },
+    {
+      "Reynolds": 600000.0,
+      "Mach": 0.1,
+      "Turbulence intensity": 0.106,
+      "Transition": [
+        0.05,
+        0.1,
+        "Zig-zag-tape",
+        0.03,
+        0.03
+      ],
+      "G-beta locus": {
+        "A": null,
+        "B": null
+      },
+      "AoA-start": -5.0,
+      "AoA-end": 25.0,
+      "AoA-step": 0.5,
+      "Vortex-Generator": null,
+      "Trailing-Edge-Serration": {
+        "Length": 0.3,
+        "Beta": 10.0,
+        "Width": 0.025
+      },
+      "Boundary-Layer-Post": true
+    }
+  ],
+  "Analysis": {
+    "Processors": 8,
+    "Initialize?": true,
+    "Run?": true,
+    "Postprocess?": true,
+    "Plots?": true,
+    "Reports?": true,
+    "Extrapolation": {
+      "Type": "Montgomerie-Lindenburg",
+      "CD3d-Correction": null,
+      "Fix-Lift-Post-Stall": false,
+      "Fix-Deep-Post-Stall-Range": false,
+      "Fix-Lift-Post-Stall-Reverse-Flow": []
+    },
+    "Synthesis": {
+      "E-max": {
+        "Shift": [
+          0.0
+        ],
+        "ShiftAsPercentage?": false
+      },
+      "Lift-Slope": {
+        "Shift": [
+          0.0
+        ],
+        "ShiftAsPercentage?": false
+      }
+    }
+  }
+}

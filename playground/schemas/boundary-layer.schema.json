@@ -1,0 +1,63 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.com/schemas/boundary-layer.schema.json",
+  "title": "boundary-layer",
+  "description" : "Boundary layer settings",
+  "type" : "object",
+  "properties" : {
+    "G-beta locus" : {
+      "description" : "G-beta locus parameters / -",
+      "type" : "object",
+      "required" : ["A", "B"],
+      "properties" : {
+        "A" : {
+          "description" : "G-beta locus A parameter / -",
+          "default" : null,
+          "oneOf" : [
+            {
+              "type" : "number",
+              "exclusiveMinimum" : 0.0
+            },
+            {
+              "type" : "null",
+              "default" : null
+            }
+          ]
+        },
+        "B" : {
+          "description" : "G-beta locus B parameter / -",
+          "default" : null,
+          "oneOf" : [
+            {
+              "type" : "number",
+              "exclusiveMinimum" : 0.0
+            },
+            {
+              "type" : "null",
+              "default" : null
+            }
+          ]
+        }
+      }
+    },
+    "Boundary-Layer-Post": {
+      "description": "Flag for boundary layer post-processing",
+      "default" : null,
+      "oneOf" : [
+        {
+          "type": "boolean",
+          "default" : false
+        },
+        {
+          "type": "string",
+          "default" : "false",
+          "enum" : ["false", "true", "False", "True"]
+        },
+        {
+          "type" : "null",
+          "default" : null
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,96 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.com/schemas/grid.schema.json",
+  "title": "grid",
+  "description" : "Grid topology and discretization settings",
+  "default" : null,
+  "oneOf" : [
+    {
+      "type": "object",
+      "properties" : {
+        "engine" : {
+          "description" : "Grid generation engine/application",
+          "type" : "string",
+          "default" : "c2d",
+          "enum" : ["c2d", "gmsh", "C2D", "GMSH"]
+        },
+        "cgi" : {
+          "description" : "Grid Convergence Index factor to refine/rarefy the grid / -",
+          "default" : null,
+          "oneOf" : [
+            {
+              "type": "number",
+              "exclusiveMinimum" : 0
+            },
+            {
+              "type" : "null",
+              "default" : null
+            }
+          ]
+        },
+        "Type" : {
+          "description" : "Grid topology",
+          "type" : "string",
+          "default" : "o",
+          "enum" : ["o", "c", "O", "C"]
+        },
+        "nx" : {
+          "description" : "Number of points along airfoil surface / -",
+          "type" : "integer",
+          "default" : 513,
+          "minimum" : 128
+        },
+        "ny" : {
+          "description" : "Number of points normal to airfoil surface / -",
+          "default" : null,
+          "oneOf" : [
+            {
+              "type": "integer",
+              "exclusiveMinimum" : 0
+            },
+            {
+              "type" : "null",
+              "default" : null
+            }
+          ]
+        },
+        "nz" : {
+          "description" : "Number of points orthogonal to airfoil plane / -",
+          "type" : "integer",
+          "default" : 1,
+          "minimum" : 1
+        },
+        "nte" : {
+          "description" : "Number of points along the airfoil trailing edge / -",
+          "default" : null,
+          "oneOf" : [
+            {
+              "type": "integer",
+              "exclusiveMinimum" : 0
+            },
+            {
+              "type" : "null",
+              "default" : null
+            }
+          ]
+        },
+        "farfield" : {
+          "description" : "Normalized far-field distance / -",
+          "type" : "number",
+          "default" : 30.0,
+          "minimum" : 2.0
+        },
+        "dz" : {
+          "description" : "Normalized span-wise length / -",
+          "type" : "number",
+          "default" : 1.0,
+          "exclusiveMinimum" : 0.0
+        }
+      }
+    },
+    {
+      "type" : "null",
+      "default" : null
+    }
+  ]
+}

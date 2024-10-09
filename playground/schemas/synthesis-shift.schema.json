@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.com/schemas/synthesis-shift.schema.json",
+  "title": "synthesis-shift",
+  "description": "A schema for the synthesis shift entry in the airfoilsimulator input",
+  "type": "object",
+  "properties" : {
+    "Shift" : {
+      "description" : "Value by which the maximum efficiency should be shifted. It can be interpreted as absolute or relative difference depending on the value assumed by the next property. Default is [0.0], thus, disregarded.",
+      "type" : "array",
+      "default" : [0.0],
+      "minItems" : 1
+    },
+    "ShiftAsPercentage?" : {
+      "description" : "Whether the shift value should be interpreted as absolute or relative difference. Default is `False`.",
+      "anyOf" : [
+        {
+          "type": "boolean",
+          "default" : false
+        },
+        {
+          "type": "string",
+          "default" : "false",
+          "enum" : ["false", "true", "False", "True"]
+        }
+      ]
+    }
+  }
+}
